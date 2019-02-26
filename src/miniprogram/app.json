@@ -1,0 +1,18 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/main/main",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/formTeam/formTeam",
+    "pages/vote/vote",
+    "pages/result/result"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  }
+}

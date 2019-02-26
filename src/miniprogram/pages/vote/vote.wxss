@@ -1,0 +1,43 @@
+@import './list';
+
+.btn-login {
+  margin: 50rpx;
+}
+
+.header {
+  font-size: 30rpx;
+  text-align: center;
+  margin: 0 50rpx 30rpx;
+  color: #aaa;
+}
+
+.header::first-line {
+  font-size: 200rpx;
+}
+
+.notice {
+  display: block;
+  margin: 50rpx auto 100rpx;
+  color: #666;
+  font-size: 32rpx;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.notice .em {
+  color: #ff0000;
+}
+
+.notice .vote {
+  margin-top: 10rpx;
+  color: blue;
+  text-decoration: underline;
+  font-size: 30rpx;
+}
+
+.submit {
+  margin: 50rpx;
+}

@@ -1,0 +1,71 @@
+@import '../vote/list';
+
+.lastteam {
+  border: 1px solid #e5e5e5;
+  border-radius: 20rpx;
+  margin: 50rpx;
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.lastteam button {
+  margin: 50rpx auto 0;
+}
+
+.total {
+  margin: 50rpx 0 0 50rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.options {
+  padding: 50rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 15rpx;
+}
+
+input[type='text'] {
+  margin-right: 20rpx;
+  padding: 5rpx 9rpx;
+  border: 1rpx solid #ddd;
+  font-size: 28rpx;
+  flex: 1;
+}
+
+.item text {
+  flex: 1;
+}
+
+.remove {
+  width: 30rpx;
+  height: 30rpx;
+  background: #999;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.remove::after {
+  display: inline-block;
+  content: '';
+  width: 16rpx;
+  height: 4rpx;
+  background-color: white;
+}
+
+.add {
+  font-size: 30rpx;
+  color: blue;
+  margin-left: 50rpx;
+  text-decoration: underline;
+}
+
+.btn-form-team {
+  margin: 50rpx;
+}

@@ -1,0 +1,11 @@
+.opt-list {
+  display: block;
+  margin: 0 50rpx;
+  text-align: left;
+}
+
+.opt-item {
+  display: block;
+  padding: 15rpx 9rpx;
+  border-bottom: 1rpx dashed #ccc;
+}

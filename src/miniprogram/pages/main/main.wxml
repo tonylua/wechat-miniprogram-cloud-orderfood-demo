@@ -1,0 +1,18 @@
+<view class='userinfo-box'>
+  <view 
+    class="userinfo-avatar"
+    style="background-image: url({{ avatarUrl }})">
+    </view>
+  <button class="userinfo-nickname">
+    {{ nickName }}</button>
+</view>
+
+<button wx:if="{{ !logged }}"
+  open-type="getUserInfo" 
+  type="primary"
+  class="btn-form-team"
+  bindgetuserinfo="onGetUserInfo">登录</button>
+<button wx:else
+  type="primary"
+  class="btn-form-team" 
+  bindtap="onFormTeam">发起组队</button>

@@ -1,0 +1,48 @@
+<view class="header">
+  🤔 <view>吃嘛好？嘛好吃？How much?</view>
+</view>
+
+<ul wx:if="{{ revote ? false : (!hasShared && !hasClickedShareMenu) }}"
+  class="opt-list">
+  <li class='opt-item'
+    wx:for="{{ options }}"
+    wx:for-item="opt"
+    wx:for-index="idx"
+    wx:key="key">
+    {{ opt.key }}
+  </li>
+</ul>
+<block wx:else>
+  <radio-group
+    class="opt-list"
+    bindchange="onChecked">
+    <radio class='opt-item'
+      wx:for="{{ options }}"
+      wx:for-item="opt"
+      wx:for-index="idx"
+      wx:key="key"
+      value='{{ idx }}'
+      checked='{{ idx === 0 }}'
+      disabled='{{ !logged }}'>
+      {{ opt.key }}
+    </radio>
+  </radio-group>
+  
+  <block wx:if="{{ !logged }}">
+    <text></text>
+    <button
+      open-type="getUserInfo" 
+      type="primary"
+      class="btn-login"
+      bindgetuserinfo="onGetUserInfo">登录以投票</button>
+  </block>
+  <button wx:else
+    type="primary"
+    class='submit'
+    disabled='{{ btnDisabled }}'
+    bindtap='onSubmit'>走你～</button>
+</block>
+
+<view class="notice">
+  选择右上角 <text class="em">[转发]</text> 菜单，分享给好友们吧！
+</view>

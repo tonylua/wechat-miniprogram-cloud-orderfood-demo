@@ -1,0 +1,73 @@
+@import '../vote/list';
+
+page {
+  text-align: center;
+}
+
+.opt-list {
+  margin-top: 50rpx;
+}
+
+.opt-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opt-item .supporters {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.opt-item .supporters .avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+
+.opt-item .supporters .total {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.final {
+  margin: 100rpx 50rpx 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.final .name {
+  font-size: 90rpx;
+  color: #bb5599;
+  padding: 20rpx auto;
+  position: relative;
+}
+
+.final .name::before {
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  font-size: 60rpx;
+  position: absolute;
+  top: -10rpx;
+  left: -20rpx;
+  content: '🏆';
+  opacity: .82;
+}
+
+.final .desc {
+  font-size: 32rpx;
+  color: #666;
+}
+
+.revote {
+  margin: 50rpx auto;
+}

@@ -1,0 +1,89 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false
+	},
+	"appid": "wx68959868c4ea4bcb",
+	"projectname": "%E7%BB%84%E9%98%9F%E7%82%B9%E9%A4%90%E5%AE%9D",
+	"libVersion": "2.6.0",
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "组队页面",
+					"pathName": "pages/formTeam/formTeam",
+					"query": "openid=fake123",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "分享页面",
+					"pathName": "pages/vote/vote",
+					"query": "team=XHPmGJT75u22LfrC",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "分享页面(转发后)",
+					"pathName": "pages/vote/vote",
+					"query": "team=XHPmGJT75u22LfrC",
+					"scene": 1044,
+					"shareInfo": {
+						"groupName": "测试模拟群7",
+						"shareName": "tdItbuzff740HwyYc9OBGiqX2i9qnAr-XK0Dcr9Tq_g@cr4dev",
+						"shareKey": "-ogaDrE74AqiEm0Yh5PWe-KnwbBG7ihzXpC1iWAeUaJcYO4tQJYOZgbfktlLBXJmkVoIiQllvjk9_aTjCd49Lw~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "结果页面",
+					"pathName": "pages/result/result",
+					"query": "team=XHPmGJT75u22LfrC",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分享页面(重新投票)",
+					"pathName": "pages/vote/vote",
+					"query": "revote=1&team=XHPmGJT75u22LfrC",
+					"scene": null
+				}
+			]
+		}
+	}
+}
