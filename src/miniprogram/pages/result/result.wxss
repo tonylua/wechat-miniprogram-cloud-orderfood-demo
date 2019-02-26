@@ -71,3 +71,9 @@ page {
 .revote {
   margin: 50rpx auto;
 }
+
+.formteam {
+  font-size: 32rpx;
+  color: blue;
+  text-decoration: underline;
+}

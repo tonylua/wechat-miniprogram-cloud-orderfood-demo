@@ -35,5 +35,8 @@ module.exports.threeAvatars = function (supporters) {
 <button wx:if="{{ options.length }}"
   class='revote'
   size="mini"
-  disabled='{{ btnDisabled }}'
   bindtap='onReVote'>改主意了...</button>
+
+<navigator wx:if="{{ options.length }}"
+  class='formteam'
+  url='/pages/main/main'>我也要组队</navigator>
