@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -82,6 +82,13 @@
 					"pathName": "pages/vote/vote",
 					"query": "revote=1&team=XHPmGJT75u22LfrC",
 					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "分享页面(转发后2)",
+					"pathName": "pages/main/main",
+					"query": "team=XHPmGJT75u22LfrC",
+					"scene": 1017
 				}
 			]
 		}

@@ -31,11 +31,13 @@ Page({
    */
   onLoad (query) {
     const { scene, path, shareTicket } = wx.getLaunchOptionsSync();
-    let { team, revote } = query;
+    let { team, revote, share } = query;
     
-    const hasShared = scene === 1044;
+    console.log('vote onLoad', scene, path, shareTicket);
 
-    // if (hasShared) { //转发后进入
+    const hasShared = share === '1';
+
+    // if (scene === 1044) { //转发群后进入
       // wx.getShareInfo({
       //   shareTicket,
       //   success(res) {
@@ -43,9 +45,11 @@ Page({
       //   }
       // });
     // } ,
-    this.setData({
-      revote: revote === '1'
-    });
+    if (revote === '1') {
+      this.setData({
+        revote: true
+      });
+    }
     
     if (app.globalData.userInfo) {
       this.setData({
@@ -73,7 +77,7 @@ Page({
     }).then(res => {
       const { teams, openid } = res.result;
       const data = teams[0];
-      console.log('getTeams from remote', teams);
+      console.log('getTeams from remote', team, teams);
 
       // 用户已经投过票,暂时不允许重新投票
       console.log('onLoad', res.result, data.members, openid)
@@ -106,7 +110,7 @@ Page({
 
     return {
       title: "快来商量吃什么啦！",
-      path: '/pages/share/share?teamid=' + this.data.teamid
+      path: '/pages/vote/vote?share=1&team=' + this.data.teamid
     }
   },
 
