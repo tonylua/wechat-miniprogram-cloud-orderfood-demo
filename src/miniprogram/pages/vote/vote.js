@@ -33,7 +33,7 @@ Page({
     const { scene, path, shareTicket } = wx.getLaunchOptionsSync();
     let { team, revote, share } = query;
     
-    console.log('vote onLoad', scene, path, shareTicket);
+    console.log('vote onLoad', scene, path, shareTicket, revote, share, this.data.hasClickedShareMenu);
 
     const hasShared = share === '1';
 
@@ -52,10 +52,20 @@ Page({
     }
     
     if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        logged: true
-      });
+      this.loginUserInfo(app.globalData.userInfo);
+    } else {
+      wx.getSetting({
+        success: res => {
+          if (res.authSetting['scope.userInfo']) {
+            wx.getUserInfo({
+              success: res => {
+                app.globalData.userInfo = res.userInfo;
+                this.loginUserInfo(res.userInfo);
+              }
+            });
+          }
+        }
+      })
     }
 
     this.getTeams(team, hasShared);
@@ -64,12 +74,16 @@ Page({
   // 未授权情况下，点击按钮获取用户信息
   onGetUserInfo(e) {
     if (e.detail.userInfo) {
-      this.setData({
-        userInfo: e.detail.userInfo,
-        logged: true
-      });
+      this.loginUserInfo(e.detail.userInfo);
     }
-  }, 
+  },
+  
+  loginUserInfo(userInfo) {
+    this.setData({
+      userInfo,
+      logged: true
+    });
+  },
 
   getTeams(team, hasShared) {
     $getTeams({
