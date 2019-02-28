@@ -1,4 +1,6 @@
+const fetch = require('node-fetch');
 const cloud = require('wx-server-sdk');
+
 cloud.init();
 
 const db = cloud.database();
@@ -25,6 +27,8 @@ exports.main = async (event, context) => {
   const { data } = result;
 
   if (!~data.members.indexOf(supporter)) { // 已投票的跳过
+    const friends = data.members.slice();
+
     data.members.push(supporter);
     data.options[checkedOptionIndex].supporters.push({
       openid: supporter,
@@ -55,6 +59,11 @@ exports.main = async (event, context) => {
       }
     });
     console.log('vote update result: ', result2.stats.updated)
+
+    // 发消息通知队友
+    if (friends.length) {
+
+    }
   }
 
   return {
