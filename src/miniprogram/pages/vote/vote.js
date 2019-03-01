@@ -5,7 +5,7 @@ const { $getTeams, $vote } = require('../../utils/requests');
 const app = getApp();
 
 function _toResult(id) {
-  wx.navigateTo({
+  wx.redirectTo({
     url: '/pages/result/result?team=' + id,
   })
 }

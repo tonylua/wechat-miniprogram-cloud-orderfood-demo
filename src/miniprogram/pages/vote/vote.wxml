@@ -13,7 +13,8 @@
   </li>
 </ul>
 <block wx:else>
-  <form report-submit bindsubmit="onSubmit">
+  <form report-submit="{{ true }}" 
+    bindsubmit="onSubmit">
     <radio-group
       class="opt-list"
       bindchange="onChecked">
