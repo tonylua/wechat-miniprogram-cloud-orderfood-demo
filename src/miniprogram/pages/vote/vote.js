@@ -4,7 +4,7 @@ const { $getTeams, $vote } = require('../../utils/requests');
 
 const app = getApp();
 
-function _toDetail(id) {
+function _toResult(id) {
   wx.navigateTo({
     url: '/pages/result/result?team=' + id,
   })
@@ -96,7 +96,7 @@ Page({
       // 用户已经投过票,暂时不允许重新投票
       console.log('onLoad', res.result, data.members, openid)
       if (this.data.logged && ~data.members.indexOf(openid)) {
-        _toDetail(team);
+        _toResult(team);
         return;
       }
 
@@ -141,7 +141,8 @@ Page({
   /**
    * 提交选择结果
    */
-  onSubmit() {
+  onSubmit(e) {
+    const { formId } = e.detail;
     const { teamid, checkedOptionIndex, userInfo } = this.data;
     
     this.setData({
@@ -153,10 +154,11 @@ Page({
     $vote({
       teamid,
       checkedOptionIndex,
-      avatarUrl: userInfo.avatarUrl
+      avatarUrl: userInfo.avatarUrl,
+      formId
     }).then(res => {
       console.log(res)
-      _toDetail(teamid);
+      _toResult(teamid);
     }).catch(err => {
       console.log(err)
       wx.showToast({

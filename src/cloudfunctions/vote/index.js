@@ -1,10 +1,8 @@
-const fetch = require('node-fetch');
 const cloud = require('wx-server-sdk');
 
 cloud.init();
 
 const db = cloud.database();
-const _ = db.command;
 
 // 处理选择商家的动作
 exports.main = async (event, context) => {
@@ -13,7 +11,8 @@ exports.main = async (event, context) => {
   const { 
     teamid,
     checkedOptionIndex,
-    avatarUrl
+    avatarUrl,
+    formId
   } = event;
 
   console.log('vote: ', teamid, checkedOptionIndex, event.avatarUrl);
@@ -62,7 +61,15 @@ exports.main = async (event, context) => {
 
     // 发消息通知队友
     if (friends.length) {
-
+      const stm = await cloud.callFunction({
+        name: 'sendTempMsg',
+        data: {
+          friends, formId, teamid, options
+        }
+      });
+      console.log('vote callFunction success', stm);
+    } else {
+      console.log('no friends, not send msg');
     }
   }
 
