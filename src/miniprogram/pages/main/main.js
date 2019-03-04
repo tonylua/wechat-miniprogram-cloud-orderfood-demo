@@ -10,8 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: '../user-unlogin.png',
-    nickName: '',
+    userInfo: null,
     logged: false,
   },
 
@@ -44,10 +43,8 @@ Page({
     // 存入全局
     app.globalData.userInfo = userInfo;
 
-    const { avatarUrl, nickName } = userInfo;
     this.setData({
-      avatarUrl,
-      nickName,
+      userInfo,
       logged: true
     });
   },

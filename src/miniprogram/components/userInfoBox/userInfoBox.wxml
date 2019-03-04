@@ -1,0 +1,8 @@
+<view class='userinfo-box'>
+  <view 
+    class="userinfo-avatar"
+    style="background-image: url({{ userInfo.avatarUrl }})">
+    </view>
+  <button class="userinfo-nickname">
+    {{ userInfo.nickName }}</button>
+</view>

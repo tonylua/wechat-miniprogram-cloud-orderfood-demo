@@ -1,11 +1,4 @@
-<view class='userinfo-box'>
-  <view 
-    class="userinfo-avatar"
-    style="background-image: url({{ avatarUrl }})">
-    </view>
-  <button class="userinfo-nickname">
-    {{ nickName }}</button>
-</view>
+<user-info-box user-info="{{ userInfo }}" />
 
 <button wx:if="{{ !logged }}"
   open-type="getUserInfo" 
