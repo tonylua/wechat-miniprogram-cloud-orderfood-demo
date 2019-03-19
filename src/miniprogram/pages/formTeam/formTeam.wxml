@@ -1,47 +1,49 @@
-<view wx:if='{{ lastTeam }}' class='lastteam'>
-  <ul class="opt-list">
-    <li class='opt-item'
-      wx:for="{{ lastTeam.options }}"
-      wx:for-item="opt"
-      wx:for-index="idx"
-      wx:key="key">
-      {{ opt.key }}
-    </li>
-  </ul>
-  <button size="mini"
-    bindtap="onUseLastTeam">重新启用上次的队伍</button>
-</view>
-
-<text wx:if="{{ options.length }}"
-  class='total'
-  >共录入了 {{ options.length }} 家餐厅， 最多 {{ MAX }} 家</text>
-
-<view class='options'>
-  <view class='item'
-    wx:for='{{ options }}'
-    wx:for-item='item'
-    wx:for-index='idx'
-    wx:key='_insertId'>
-    <text>{{ item.name }}</text>
-    <view class="remove"
-      data-id='{{ item._insertId }}'
-      bindtap='onItemRemove'></view>
+<formid-saver>
+  <view wx:if='{{ lastTeam }}' class='lastteam'>
+    <ul class="opt-list">
+      <li class='opt-item'
+        wx:for="{{ lastTeam.options }}"
+        wx:for-item="opt"
+        wx:for-index="idx"
+        wx:key="key">
+        {{ opt.key }}
+      </li>
+    </ul>
+    <button size="mini"
+      bindtap="onUseLastTeam">重新启用上次的队伍</button>
   </view>
-  <form wx:if='{{ options.length < MAX }}' 
-    bindsubmit='onItemInsert'>
-    <view class='item'>
-      <input type='text' 
-        name='itemname'
-        value='{{ insertingValue }}'
-        placeholder='输入餐厅名称' />
-      <button size='mini' type='primary'
-        form-type='submit'>确定</button>
-    </view>
-  </form>
-</view>
 
-<button
-  disabled='{{ btnDisabled }}'
-  type="primary"
-  class="btn-form-team"
-  bindtap="onFormTeamSubmit">组队</button>
+  <text wx:if="{{ options.length }}"
+    class='total'
+    >共录入了 {{ options.length }} 家餐厅， 最多 {{ MAX }} 家</text>
+
+  <view class='options'>
+    <view class='item'
+      wx:for='{{ options }}'
+      wx:for-item='item'
+      wx:for-index='idx'
+      wx:key='_insertId'>
+      <text>{{ item.name }}</text>
+      <view class="remove"
+        data-id='{{ item._insertId }}'
+        bindtap='onItemRemove'></view>
+    </view>
+    <form wx:if='{{ options.length < MAX }}' 
+      bindsubmit='onItemInsert'>
+      <view class='item'>
+        <input type='text' 
+          name='itemname'
+          value='{{ insertingValue }}'
+          placeholder='输入餐厅名称' />
+        <button size='mini' type='primary'
+          form-type='submit'>确定</button>
+      </view>
+    </form>
+  </view>
+
+  <button
+    disabled='{{ btnDisabled }}'
+    type="primary"
+    class="btn-form-team"
+    bindtap="onFormTeamSubmit">组队</button>
+</formid-saver>

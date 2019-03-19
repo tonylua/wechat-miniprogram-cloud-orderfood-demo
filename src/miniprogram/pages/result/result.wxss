@@ -1,7 +1,11 @@
 @import '../vote/list';
 
-page {
-  text-align: center;
+.form-saver {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .opt-list {

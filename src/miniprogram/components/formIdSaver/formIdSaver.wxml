@@ -1,0 +1,7 @@
+<form class="fsform"
+  report-submit="{{ true }}"
+  bindsubmit="onSubmit">
+  <button form-type='submit' class="saverWrapper">
+    <slot></slot>
+  </button>
+</form>

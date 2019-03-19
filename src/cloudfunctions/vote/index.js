@@ -58,16 +58,6 @@ exports.main = async (event, context) => {
     });
     console.log('vote update result: ', result2.stats.updated);
 
-    // 记录 formId
-    const sf = await cloud.callFunction({
-      name: 'saveFormId',
-      data: {
-        openid: supporter,
-        formId
-      }
-    });
-    console.log('vote save formId', sf);
-
     // 发消息通知队友
     if (friends.length) {
       const stm = await cloud.callFunction({

@@ -109,10 +109,22 @@ exports.getFirstResult = async () => {
 // 取得用户对应的 formId
 const getFromId = async (openid) => {
   const coll = db.collection('formids');
-  const query = coll.where({openid});
+  const query = coll.where({ openid });
   const countResult = await query.count();
   if (!countResult.total) return null;
   const results = await query.get();
-  const { formId } = results.data[0];
+  const { _id, formIds } = results.data[0];
+  if (!Array.isArray(formIds)) return null;
+  let availables = formIds.filter(
+    (item) => item && item.expire && (item.expire > Date.now())
+  );
+  if (!availables.length) return null;
+  const { formId } = availables.shift();
+  await coll.where({ openid }).update({
+    data: {
+      openid,
+      formIds: availables
+    }
+  });
   return formId;
 };

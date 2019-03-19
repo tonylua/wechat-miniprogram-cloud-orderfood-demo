@@ -1,11 +1,13 @@
-<user-info-box user-info="{{ userInfo }}" />
+<formid-saver>
+  <user-info-box user-info="{{ userInfo }}" />
 
-<button wx:if="{{ !logged }}"
-  open-type="getUserInfo" 
-  type="primary"
-  class="btn-form-team"
-  bindgetuserinfo="onGetUserInfo">登录</button>
-<button wx:else
-  type="primary"
-  class="btn-form-team" 
-  bindtap="onFormTeam">发起组队</button>
+  <button wx:if="{{ !logged }}"
+    open-type="getUserInfo" 
+    type="primary"
+    class="btn-form-team"
+    bindgetuserinfo="onGetUserInfo">登录</button>
+  <button wx:else
+    type="primary"
+    class="btn-form-team" 
+    bindtap="onFormTeam">发起组队</button>
+</formid-saver>
