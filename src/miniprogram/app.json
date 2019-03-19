@@ -14,5 +14,8 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "formid-saver": "/components/formIdSaver/formIdSaver"
   }
 }

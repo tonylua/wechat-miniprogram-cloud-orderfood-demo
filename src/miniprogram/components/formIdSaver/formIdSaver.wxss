@@ -1,0 +1,22 @@
+.saverWrapper {
+  width: 100%;
+  border: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: initial;
+  box-shadow: none;
+  border-radius: 0;
+  outline: 0;
+}
+.saverWrapper::before,
+.saverWrapper::after {
+  display: none;
+}
+.saverWrapper:active {
+  background: none;
+}
+.fsform {
+  width: 100%;
+  text-align: left;
+}

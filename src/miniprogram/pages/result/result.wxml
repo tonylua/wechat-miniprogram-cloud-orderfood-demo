@@ -4,39 +4,41 @@ module.exports.threeAvatars = function (supporters) {
 };
 </wxs>
 
-<ul class="opt-list">
-  <li class='opt-item'
-    wx:for="{{ options }}"
-    wx:for-item="opt"
-    wx:for-index="idx"
-    wx:key="key">
-    <text>{{ opt.key }}</text>
-    <view class="supporters">
-      <view class='avatar'
-        wx:for="{{ m1.threeAvatars(opt.supporters) }}"
-        wx:for-item="who"
-        wx:for-index="idx2"
-        wx:key="openid"
-        style="background-image: url({{ who.avatarUrl }})">
+<formid-saver class="form-saver">
+  <ul class="opt-list">
+    <li class='opt-item'
+      wx:for="{{ options }}"
+      wx:for-item="opt"
+      wx:for-index="idx"
+      wx:key="key">
+      <text>{{ opt.key }}</text>
+      <view class="supporters">
+        <view class='avatar'
+          wx:for="{{ m1.threeAvatars(opt.supporters) }}"
+          wx:for-item="who"
+          wx:for-index="idx2"
+          wx:key="openid"
+          style="background-image: url({{ who.avatarUrl }})">
+        </view>
+        <text wx:if="{{ opt.supporters.length }}"
+          class="total">...等{{ opt.supporters.length }}人</text>
       </view>
-      <text wx:if="{{ opt.supporters.length }}"
-        class="total">...等{{ opt.supporters.length }}人</text>
+    </li>
+  </ul>
+
+  <view wx:if="{{ options.length }}" class="final">
+    <view class="name">{{ champion.key }}</view>
+    <view class="desc">
+      得票最多{{ drawByLot ? '（同票拼手气）' : '' }}
     </view>
-  </li>
-</ul>
-
-<view wx:if="{{ options.length }}" class="final">
-  <view class="name">{{ champion.key }}</view>
-  <view class="desc">
-    得票最多{{ drawByLot ? '（同票拼手气）' : '' }}
   </view>
-</view>
 
-<button wx:if="{{ options.length }}"
-  class='revote'
-  size="mini"
-  bindtap='onReVote'>改主意了...</button>
+  <button wx:if="{{ options.length }}"
+    class='revote'
+    size="mini"
+    bindtap='onReVote'>改主意了...</button>
 
-<navigator wx:if="{{ options.length }}"
-  class='formteam'
-  url='/pages/main/main'>我也要组队</navigator>
+  <navigator wx:if="{{ options.length }}"
+    class='formteam'
+    url='/pages/main/main'>我也要组队</navigator>
+</formid-saver>
