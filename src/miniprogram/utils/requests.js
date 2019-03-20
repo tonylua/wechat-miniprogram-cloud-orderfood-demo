@@ -32,6 +32,7 @@ function _send(name, data = {}) {
     });
 }
 
+exports.$saveFormIds = _saveFormIds;
 exports.$login = () => _send('login');
 exports.$formTeam = (data) => _send('formTeam', data);
 exports.$getTeams = (data) => _send('getTeams', data);

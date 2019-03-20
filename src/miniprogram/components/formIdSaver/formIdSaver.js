@@ -31,6 +31,7 @@ Component({
       } else {
         app.globalData.formIds = [obj];
       }
+      // console.log(app.globalData.formIds)
     }
   }
 })
