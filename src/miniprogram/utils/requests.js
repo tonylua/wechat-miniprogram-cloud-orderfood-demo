@@ -16,13 +16,20 @@ function _saveFormIds() {
 
 function _send(name, data = {}) {
   console.log(name, data);
+  wx.showLoading({
+    title: "稍安勿躁..."
+  });
   return _saveFormIds()
-    .then(
-      () => wx.cloud.callFunction({
+    .then(() => {
+      wx.hideLoading();
+      return wx.cloud.callFunction({
         name,
         data
-      })
-    );
+      });
+    })
+    .catch((ex) => {
+      wx.hideLoading()
+    });
 }
 
 exports.$login = () => _send('login');
