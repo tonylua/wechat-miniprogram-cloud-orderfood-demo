@@ -1,6 +1,7 @@
 // miniprogram/pages/share/share.js
 // 组队成功后的分享和投票页面
 const { $getTeams, $vote } = require('../../utils/requests');
+const { shareAppMessage } = require('../../utils/share');
 
 const app = getApp();
 
@@ -109,26 +110,6 @@ Page({
   },
 
   /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage () {
-    console.log('点击转发才触发', this.data.teamid)
-
-    wx.showShareMenu({
-      withShareTicket: true
-    });
-
-    this.setData({
-      hasClickedShareMenu: true
-    });
-
-    return {
-      title: "快来商量吃什么啦！",
-      path: '/pages/vote/vote?share=1&team=' + this.data.teamid
-    }
-  },
-
-  /**
    * 选择了餐馆
    */
   onChecked(e) {
@@ -170,5 +151,16 @@ Page({
         btnDisabled: false
       })
     });
-  }
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+    // console.log('点击转发才触发', this.data.teamid);
+    this.setData({
+      hasClickedShareMenu: true
+    });
+    return shareAppMessage(this.data.teamid);
+  },
 })

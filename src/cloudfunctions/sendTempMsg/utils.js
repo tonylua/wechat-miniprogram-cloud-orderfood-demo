@@ -40,7 +40,7 @@ exports.sendTempMsg = async (
 
   const results = Promise.all(
     targets.map(async (user) => {
-      const form_id = await getFromId(user);
+      const form_id = await getFormId(user);
       if (!form_id) 
         return Promise.resolve(null);
       //   return Promise.reject('no formId for ' + user);
@@ -107,17 +107,20 @@ exports.getFirstResult = async () => {
 };
 
 // 取得用户对应的 formId
-const getFromId = async (openid) => {
+const getFormId = async (openid) => {
   const coll = db.collection('formids');
   const query = coll.where({ openid });
   const countResult = await query.count();
+  console.log('getFormId======1', countResult.total);
   if (!countResult.total) return null;
   const results = await query.get();
   const { _id, formIds } = results.data[0];
+  console.log('getFormId======2', _id, formIds);
   if (!Array.isArray(formIds)) return null;
   let availables = formIds.filter(
     (item) => item && item.expire && (item.expire > Date.now())
   );
+  console.log('getFormId======3', availables.length);
   if (!availables.length) return null;
   const { formId } = availables.shift();
   await coll.where({ openid }).update({
@@ -126,5 +129,6 @@ const getFromId = async (openid) => {
       formIds: availables
     }
   });
+  console.log('getFormId======4', formId, availables.length);
   return formId;
 };
