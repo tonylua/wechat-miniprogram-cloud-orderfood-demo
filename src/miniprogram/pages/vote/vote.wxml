@@ -32,7 +32,6 @@
       </radio-group>
       
       <block wx:if="{{ !logged }}">
-        <text></text>
         <button
           open-type="getUserInfo" 
           type="primary"

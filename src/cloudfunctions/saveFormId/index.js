@@ -24,10 +24,11 @@ exports.main = async (event, context) => {
   // 加入新的并清除过期的，按到期时间排序
   const lastests = [].concat(exists, formIds)
     .filter((item) => item && item.expire && (item.expire > Date.now()))
+    .filter((item) => item.formId !== 'the formId is a mock one')
     .sort((a, b) => a.expire - b.expire);
 
   // 删除旧的
-  await coll.where({ openid }).remove();
+  await existQuery.remove();
   
   // 录入 
   const result = await coll.add({

@@ -1,6 +1,7 @@
 // miniprogram/pages/result/result.js
 // 查看结果页
 const { $reVote } = require('../../utils/requests');
+const { shareAppMessage } = require('../../utils/share');
 
 Page({
 
@@ -58,6 +59,14 @@ Page({
         url: '/pages/vote/vote?revote=1&team=' + this.data.teamid,
       })
     });
-  }
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+    // console.log('点击转发才触发', this.data.teamid);
+    return shareAppMessage(this.data.teamid);
+  },
 
 })

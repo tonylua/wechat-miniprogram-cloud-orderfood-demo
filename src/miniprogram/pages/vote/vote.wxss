@@ -1,7 +1,10 @@
 @import './list';
 
-.btn-login {
-  margin: 50rpx;
+.btn-login,
+.submit {
+  margin: 30rpx 50rpx;
+  position: relative;
+  z-index: 2;
 }
 
 .header {
@@ -17,7 +20,7 @@
 
 .notice {
   display: block;
-  margin: 50rpx auto 100rpx;
+  margin: 50rpx auto 60rpx;
   color: #666;
   font-size: 32rpx;
   width: 100%;
@@ -25,6 +28,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
 
 .notice .em {
@@ -36,8 +40,4 @@
   color: blue;
   text-decoration: underline;
   font-size: 30rpx;
-}
-
-.submit {
-  margin: 50rpx;
 }

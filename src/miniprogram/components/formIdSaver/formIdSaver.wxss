@@ -8,6 +8,7 @@
   box-shadow: none;
   border-radius: 0;
   outline: 0;
+  line-height: 1.5;
 }
 .saverWrapper::before,
 .saverWrapper::after {
